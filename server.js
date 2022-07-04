@@ -14,5 +14,15 @@ app.get('/', (req, res) => {
   console.log('Request received!');
 });
 
+app.get('/console', (req, res) => {
+  res.send('Send console error');
+  console.error(new Error('What the huh?'));
+});
+
+app.get('/throw', (req, res) => {
+  res.send('Throwing error');
+  throw new Error('Trowed super duper error.');
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
