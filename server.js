@@ -1,6 +1,6 @@
 
 'use strict';
-
+const AppError = require('./error');
 const express = require('express');
 
 // Constants
@@ -16,12 +16,12 @@ app.get('/', (req, res) => {
 
 app.get('/console', (req, res) => {
   res.send('Send console error');
-  console.error(new Error('What the huh?'));
+  console.error(new AppError('What the huh?', 422, 'Console error'));
 });
 
 app.get('/throw', (req, res) => {
   res.send('Throwing error');
-  throw new Error('Trowed super duper error.');
+  throw new AppError('Trowed super duper error.', 503, 'Title');
 });
 
 app.listen(PORT, HOST);
