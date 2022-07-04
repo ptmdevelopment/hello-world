@@ -21,7 +21,7 @@ app.get('/console', (req, res) => {
 
 app.get('/throw', (req, res) => {
   res.send('Throwing error');
-  res.send();
+  throw new Error('Oh no!');
   //throw new AppError('Trowed super duper error.', 503, 'Title');
 });
 
