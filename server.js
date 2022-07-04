@@ -21,7 +21,8 @@ app.get('/console', (req, res) => {
 
 app.get('/throw', (req, res) => {
   res.send('Throwing error');
-  throw new AppError('Trowed super duper error.', 503, 'Title');
+  res.send();
+  //throw new AppError('Trowed super duper error.', 503, 'Title');
 });
 
 app.listen(PORT, HOST);
