@@ -4,8 +4,12 @@ const AppError = require('./error');
 const express = require('express');
 
 // Constants
-const PORT = 8080;
+let PORT = 8080;
 const HOST = '0.0.0.0';
+
+process.argv.forEach(function (val) {
+  if (val.startsWith('port=')) PORT = parseInt(val.replace('port=', '')) || 8080;
+});
 
 // App
 const app = express();
